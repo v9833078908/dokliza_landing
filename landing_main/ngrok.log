@@ -477,3 +477,57 @@ t=2025-11-27T11:21:41+0300 lvl=info msg="join connections" obj=join id=feaecdc87
 t=2025-11-27T11:21:41+0300 lvl=info msg="join connections" obj=join id=6bda9301029d l=127.0.0.1:3000 r=62.84.96.86:46064
 t=2025-11-27T11:21:41+0300 lvl=info msg="join connections" obj=join id=ccd48565beb3 l=127.0.0.1:3000 r=62.84.96.86:46064
 t=2025-11-27T11:21:42+0300 lvl=info msg="join connections" obj=join id=371f0f796808 l=127.0.0.1:3000 r=62.84.96.86:57518
+t=2025-11-27T11:41:04+0300 lvl=info msg="join connections" obj=join id=b65939e07be7 l=127.0.0.1:3000 r=62.84.96.86:55398
+t=2025-11-27T11:41:05+0300 lvl=info msg="join connections" obj=join id=635874e67f81 l=127.0.0.1:3000 r=62.84.96.86:41422
+t=2025-11-27T11:41:05+0300 lvl=info msg="join connections" obj=join id=7ad0d118e754 l=127.0.0.1:3000 r=62.84.96.86:41422
+t=2025-11-27T11:41:05+0300 lvl=info msg="join connections" obj=join id=4c5be975f09a l=127.0.0.1:3000 r=62.84.96.86:41422
+t=2025-11-27T11:41:05+0300 lvl=info msg="join connections" obj=join id=ce7665f76a2d l=127.0.0.1:3000 r=62.84.96.86:41422
+t=2025-11-27T11:41:07+0300 lvl=info msg="join connections" obj=join id=62b6f3f6396d l=127.0.0.1:3000 r=62.84.96.86:55406
+t=2025-11-27T11:43:25+0300 lvl=info msg="join connections" obj=join id=3fd42ddafc6c l=127.0.0.1:3000 r=62.84.96.86:50976
+t=2025-11-27T11:43:25+0300 lvl=info msg="join connections" obj=join id=d6922b32b750 l=127.0.0.1:3000 r=62.84.96.86:50976
+t=2025-11-27T11:43:25+0300 lvl=info msg="join connections" obj=join id=d3a16850d5ca l=127.0.0.1:3000 r=62.84.96.86:50976
+t=2025-11-27T11:43:25+0300 lvl=info msg="join connections" obj=join id=0f32565690c2 l=127.0.0.1:3000 r=62.84.96.86:50976
+t=2025-11-27T11:43:26+0300 lvl=info msg="join connections" obj=join id=8ab5adf56caa l=127.0.0.1:3000 r=62.84.96.86:50988
+t=2025-11-27T11:50:00+0300 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=6f3d9056b5de err="read tcp 10.0.0.2:64176->52.28.187.147:443: read: connection reset by peer"
+t=2025-11-27T11:50:03+0300 lvl=info msg="client session established" obj=tunnels.session
+t=2025-11-27T11:50:03+0300 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-11-27T11:50:03+0300 lvl=info msg="join connections" obj=join id=23b603a65d5e l=127.0.0.1:3000 r=62.84.96.86:41308
+t=2025-11-27T11:50:04+0300 lvl=info msg="join connections" obj=join id=a36164141fbe l=127.0.0.1:3000 r=62.84.96.86:35676
+t=2025-11-27T11:50:04+0300 lvl=info msg="join connections" obj=join id=51101c025e5a l=127.0.0.1:3000 r=62.84.96.86:35676
+t=2025-11-27T11:50:04+0300 lvl=info msg="join connections" obj=join id=7964186530df l=127.0.0.1:3000 r=62.84.96.86:35676
+t=2025-11-27T11:50:04+0300 lvl=info msg="join connections" obj=join id=a84e0eee4a88 l=127.0.0.1:3000 r=62.84.96.86:35676
+t=2025-11-27T11:50:06+0300 lvl=info msg="join connections" obj=join id=e47fa795887a l=127.0.0.1:3000 r=62.84.96.86:41312
+t=2025-11-27T11:50:21+0300 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=e699a6628008 clientid=6e09249167182b39b5ca9e9f5d394819
+t=2025-11-27T12:05:57+0300 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=6f3d9056b5de err="read tcp 10.0.0.2:51884->3.123.177.80:443: read: connection reset by peer"
+t=2025-11-27T12:06:00+0300 lvl=info msg="client session established" obj=tunnels.session
+t=2025-11-27T12:06:00+0300 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-11-27T12:06:20+0300 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=ca523005a0b0 clientid=6e09249167182b39b5ca9e9f5d394819
+t=2025-11-27T12:23:26+0300 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=6f3d9056b5de err="read tcp 10.0.0.2:52590->3.125.92.105:443: read: connection reset by peer"
+t=2025-11-27T12:23:29+0300 lvl=info msg="client session established" obj=tunnels.session
+t=2025-11-27T12:23:29+0300 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-11-27T12:23:48+0300 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=279a1132d934 clientid=6e09249167182b39b5ca9e9f5d394819
+t=2025-11-27T12:34:43+0300 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=6f3d9056b5de err="read tcp 10.0.0.2:53281->52.28.187.147:443: read: connection reset by peer"
+t=2025-11-27T12:34:46+0300 lvl=info msg="client session established" obj=tunnels.session
+t=2025-11-27T12:34:46+0300 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-11-27T12:34:48+0300 lvl=info msg="join connections" obj=join id=4f057f3ea323 l=127.0.0.1:3000 r=62.84.96.86:46906
+t=2025-11-27T12:34:49+0300 lvl=info msg="join connections" obj=join id=bc7916f053ab l=127.0.0.1:3000 r=62.84.96.86:46914
+t=2025-11-27T12:34:49+0300 lvl=info msg="join connections" obj=join id=69af340f6a09 l=127.0.0.1:3000 r=62.84.96.86:46914
+t=2025-11-27T12:34:49+0300 lvl=info msg="join connections" obj=join id=a8f3af7b19e6 l=127.0.0.1:3000 r=62.84.96.86:46914
+t=2025-11-27T12:34:49+0300 lvl=info msg="join connections" obj=join id=605a213de55a l=127.0.0.1:3000 r=62.84.96.86:46914
+t=2025-11-27T12:34:51+0300 lvl=info msg="join connections" obj=join id=9f3e203d0962 l=127.0.0.1:3000 r=62.84.96.86:44114
+t=2025-11-27T12:35:05+0300 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=dd748301a777 clientid=6e09249167182b39b5ca9e9f5d394819
+t=2025-11-27T12:35:09+0300 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=1518edb92db0 clientid=6e09249167182b39b5ca9e9f5d394819
+t=2025-11-27T12:35:09+0300 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=6f3d9056b5de err="session closed"
+t=2025-11-27T12:35:19+0300 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2025-11-27T12:35:45+0300 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=adcb77398f88
+t=2025-11-27T12:35:46+0300 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to send authentication request: session closed"
+t=2025-11-27T12:35:58+0300 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to send authentication request: failed to fetch CRL. errors encountered: timed out fetching CRL"
+t=2025-11-27T12:36:02+0300 lvl=info msg="client session established" obj=tunnels.session
+t=2025-11-27T12:36:02+0300 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-11-27T12:36:03+0300 lvl=info msg="join connections" obj=join id=f9cf9762b645 l=127.0.0.1:3000 r=156.229.160.247:48106
+t=2025-11-27T12:36:04+0300 lvl=info msg="join connections" obj=join id=1beb7952a7af l=127.0.0.1:3000 r=156.229.160.247:49224
+t=2025-11-27T12:36:05+0300 lvl=info msg="join connections" obj=join id=acea84c1409a l=127.0.0.1:3000 r=156.229.160.247:49224
+t=2025-11-27T12:36:05+0300 lvl=info msg="join connections" obj=join id=557252fd9773 l=127.0.0.1:3000 r=156.229.160.247:49224
+t=2025-11-27T12:36:05+0300 lvl=info msg="join connections" obj=join id=e09967269b98 l=127.0.0.1:3000 r=156.229.160.247:49224
+t=2025-11-27T12:36:07+0300 lvl=info msg="join connections" obj=join id=20821e5aa2a8 l=127.0.0.1:3000 r=156.229.160.247:52480
+t=2025-11-27T12:47:27+0300 lvl=info msg="update available" obj=updater
