@@ -49,7 +49,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`${baseStyle} ${variants[variant]} ${fullWidth ? 'w-full' : 'w-full md:w-auto'} ${className}`}
+      className={`${baseStyle} ${variants[variant]} ${fullWidth ? 'w-full' : 'w-auto'} ${className}`}
     >
       {children}
       {Icon && <Icon className="w-5 h-5" />}
@@ -288,6 +288,12 @@ const App = () => {
     { src: '/documents/diploma1.jpg', alt: 'Диплом специалиста', type: 'landscape' },
     { src: '/documents/diploma2.png', alt: 'Диплом об окончании ординатуры', type: 'portrait' },
     { src: '/documents/cert1.png', alt: 'Сертификат интегративного нутрициолога', type: 'landscape' },
+    { src: '/documents/Коучинг ELIZAVETA EFIMOVA.jpg', alt: 'Сертификат Коучинг', type: 'landscape' },
+    { src: '/documents/Сертификат Юсипова.jpeg', alt: 'Сертификат Юсипова', type: 'landscape' },
+    { src: '/documents/сертификат ковид_page-0001.jpg', alt: 'Сертификат COVID-19', type: 'landscape' },
+    { src: '/documents/сертификат нутригенетика.jpg', alt: 'Сертификат Нутригенетика', type: 'landscape' },
+    { src: '/documents/удостоверение гомеопат.jpeg', alt: 'Удостоверение Гомеопат', type: 'landscape' },
+    { src: '/documents/участник Иммунитет создатели _page-0001.jpg', alt: 'Сертификат Иммунитет', type: 'landscape' },
   ];
 
   useEffect(() => {
@@ -340,12 +346,12 @@ const App = () => {
               семейный доктор | педиатр | онлайн
             </span>
 
-            <h1 className="text-3xl md:text-5xl lg:text-6xl leading-tight font-serif text-stone-900 mb-4 md:mb-6 font-bold">
-              Помогу найти <span className="text-nature-700 italic">истинную причину</span> болезней и восстановить здоровье
+            <h1 className="text-3xl md:text-4xl lg:text-5xl leading-tight font-serif text-stone-900 mb-4 md:mb-6 font-bold">
+              Когда обычные врачи разводят руками. Разбираюсь в сложных случаях, находя <span className="text-nature-700">реальные причины</span> частых болезней
             </h1>
 
             <p className="text-lg text-stone-600 leading-relaxed mb-8 md:text-xl">
-              Елизавета Ефимова — семейный доктор, врач-педиатр с ординатурой по патологоанатомии. Объединяю опыт 6 лет клинической практики с методами превентивной медицины. Выстраиваю семьям систему здоровья
+              Елизавета Ефимова — семейный доктор, врач-педиатр с ординатурой по патологоанатомии. Объединяю опыт 6 лет клинической практики с методами интегративной медицины. Выстраиваю семьям систему здоровья
             </p>
 
             {/* Desktop CTA (Grid Layout) */}
@@ -385,7 +391,7 @@ const App = () => {
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Мне можно доверять</h2>
             <div className="w-20 h-1.5 bg-nature-500 rounded mb-6 mx-auto lg:mx-0"></div>
             <p className="text-stone-600 leading-relaxed text-base md:text-lg">
-              За 6 лет практики я помогла более чем 600 семьям достичь значительных улучшений в здоровье. Дети меньше болеют, их рацион питания становится разнообразнее, они забывают про аденоиды и атопический дерматит. Помогаю устранить причины боли в животе, нормализовать аппетит и сон. Взрослые повышают уровень энергии, снижают вес и решают проблемы, которые длятся годами -- от исчезновения узлов в щитовидной железе до нормализации метаболизма. Эти результаты подтверждают эффективность моего подхода
+              За 6 лет практики я помогла более чем 600 семьям достичь значительных улучшений в здоровье. Дети меньше болеют, их рацион питания становится разнообразнее, они забывают про аденоиды и атопический дерматит. Помогаю устранить причины боли в животе, нормализовать аппетит и сон. Взрослые повышают уровень энергии, снижают вес и <strong>решают проблемы, которые длятся годами</strong> - от исчезновения узлов в щитовидной железе до нормализации метаболизма. Эти результаты подтверждают эффективность моего подхода
             </p>
           </div>
 
@@ -461,8 +467,8 @@ const App = () => {
               <ul className="space-y-4">
                 {[
                   "У вас снова нет времени на себя и мужа, т.к ребенок болеет",
-                  "Чувствуете замешательство, потому что доктора делают разные назначения, переживаете из-за избытка фарм-препаратов",
-                  "Вы хотите разобраться в причинах и почувствовать себя хорошей мамой, женой и подарить здоровье и покой своей семье"
+                  "Не понимаете почему врачи делают разные назначение и что действительно будет работать",
+                  "Вы хотите чувствовать уверенность в здоровье ребенка и своей семьи, быть хорошей мамой и женой"
                 ].map((item, i) => (
                   <li key={i} className="text-stone-700 text-sm md:text-base leading-relaxed flex items-start gap-3">
                     <span className="text-[#B8AD83] mt-1 flex-shrink-0">•</span>
@@ -502,7 +508,7 @@ const App = () => {
       <Section className="bg-nature-50" id="method">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 leading-tight">Три шага от вечных болезней к стабильному здоровью</h2>
-          <p className="text-stone-500 uppercase tracking-widest font-semibold text-sm">Моя система</p>
+          <p className="text-stone-500 uppercase tracking-widest font-semibold text-sm"></p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -512,7 +518,7 @@ const App = () => {
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="font-serif font-bold text-xl text-nature-800 mb-3">Найти причину</h3>
-            <p className="text-stone-600 mb-6 text-base leading-relaxed">Глубокий разбор анализов + анкета на 40+ параметров (история родов, питание, стресс). Вы понимаете, ПОЧЕМУ организм дает сбой.</p>
+            <p className="text-stone-600 mb-6 text-base leading-relaxed">Я анализирую 40+ параметров: от истории ваших родов до содержимого тарелки вчера на ужин. В результате, хаос превращается в ясность и вы понимаете, почему произошел сбой и где «тонкое место» в иммунитете ребенка.</p>
             <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
               <Clock className="w-4 h-4" /> 7 дней
             </div>
@@ -524,7 +530,7 @@ const App = () => {
               <Heart className="w-8 h-8" />
             </div>
             <h3 className="font-serif font-bold text-xl text-stone-900 mb-3">Запустить восстановление</h3>
-            <p className="text-stone-600 mb-6 text-base leading-relaxed">Персональный протокол: питание + нутрицевтики + режим. Ребенок бодрее, меньше капризов, сон крепче, сопли проходят.</p>
+            <p className="text-stone-600 mb-6 text-base leading-relaxed">Подбираю индивидуальный протокол, корректируем питание, образ жизни, добавляем нутрицевтики, если нужны. В результате ребенок меняется на глазах - сон становится крепче, капризы уходят, а затяжные сопли наконец-то проходят. Вы выдыхаете.</p>
             <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
               <Clock className="w-4 h-4" /> 14–30 дней
             </div>
@@ -536,7 +542,7 @@ const App = () => {
               <ShieldCheck className="w-8 h-8" />
             </div>
             <h3 className="font-serif font-bold text-xl text-nature-800 mb-3">Закрепить результат</h3>
-            <p className="text-stone-600 mb-6 text-base leading-relaxed">Контрольные анализы + точечная корректировка. Вы знаете, как поддерживать здоровье без паники при каждом чихе.</p>
+            <p className="text-stone-600 mb-6 text-base leading-relaxed">Контрольные анализы и закрепление успеха. Вы получаете алгоритмы действий на будущее. Вы чувствуете уверенность и спокойствие, знаете, как не дать ребенку разболеться, без паники и лишних лекарств</p>
             <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
               <Clock className="w-4 h-4" /> 60 дней
             </div>
@@ -555,7 +561,7 @@ const App = () => {
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-12">
-              <p className="text-white font-serif text-2xl italic">"Врач должен идти рядом с семьёй"</p>
+              <p className="text-white font-serif text-2xl italic"></p>
             </div>
           </div>
 
@@ -638,41 +644,69 @@ const App = () => {
 
       {/* --- Block 7: Process (Timeline) --- */}
       <Section>
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Как проходит диагностика?</h2>
-          <p className="text-lg text-nature-600 font-medium bg-nature-50 inline-block px-4 py-2 rounded-full">
-            Спойлер: даже эффективнее, чем очно
-          </p>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-4">
+            Этапы нашей работы онлайн
+          </h2>
+          <p className="text-nature-600 font-medium">Спойлер: даже эффективнее, чем очно.</p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="relative max-w-3xl mx-auto">
+          {/* Центральная линия (Vertical Line) */}
+          {/* На мобильном смещена влево (left-[19px]), на десктопе по центру */}
+          <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-nature-200 md:left-1/2 md:-ml-px"></div>
+
+          <div className="space-y-12">
             {[
-              { title: "Знакомство (15 мин)", desc: "Бесплатный созвон. Обсуждаем ситуацию, намечаем план.", icon: Phone },
-              { title: "Подготовка", desc: "Вы заполняете анкету. Я составляю список анализов (ничего лишнего).", icon: Scroll },
-              { title: "Глубокий анализ", desc: "Изучаю ваши анализы, историю болезни, фото/видео.", icon: Stethoscope },
-              { title: "Большая консультация", desc: "1 час. Разбираем причины и стратегию лечения.", icon: User },
-              { title: "Результат на руки", desc: "Карта здоровья: план питания, нутрицевтики, режим.", icon: MapPin },
-              { title: "Поддержка", desc: "Отвечаю на вопросы в течение 3 дней после консультации.", icon: MessageCircle }
-            ].map((step, i) => (
-              <div key={i} className="flex items-start gap-4 sm:gap-6 bg-white p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-lg transition-all duration-300 group">
-                {/* Icon Bubble */}
-                <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full bg-nature-50 border border-nature-200 text-nature-600 flex items-center justify-center group-hover:bg-nature-600 group-hover:text-white transition-colors duration-300">
-                  <step.icon className="w-6 h-6 md:w-7 md:h-7" />
+              {
+                title: "Знакомство (15 мин)",
+                desc: "Созваниваемся, обсуждаем вашу ситуацию, я говорю, смогу ли помочь, и мы намечаем план действий."
+              },
+              {
+                title: "Подготовка",
+                desc: "Вы заполняете анкету, присылаете исследования и анализы, которые у вас есть, я назначаю список того, что нужно досдать или дообследовать."
+              },
+              {
+                title: "Анализ",
+                desc: "Я изучаю ваши анализы, историю болезни, фото/видео до нашей встречи."
+              },
+              {
+                title: "Консультация (1 час)",
+                desc: "Мы подробно разбираем причины состояния и стратегию лечения."
+              },
+              {
+                title: "Результат на руки",
+                desc: "Вы получаете карту здоровья: питание, образ жизни, нутрицевтики"
+              },
+              {
+                title: "Поддержка",
+                desc: "Я отвечаю на вопросы в течение 3 дней после консультации и остаюсь с вами на связи в дальнейшем."
+              }
+            ].map((step, index) => (
+              <div key={index} className={`relative flex items-start gap-8 md:gap-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+
+                {/* Маркер шага (Dot) */}
+                {/* Кружок с номером на мобильном, маленький кружок на десктопе */}
+                <div className="absolute left-0 md:left-1/2 md:-ml-2.5 w-10 h-10 md:w-5 md:h-5 bg-white border-4 border-nature-500 rounded-full z-10 flex items-center justify-center text-xs font-bold text-stone-900 md:text-[0px]">
+                  <span className="md:hidden">{index + 1}</span>
                 </div>
 
-                {/* Content */}
-                <div className="flex-1">
-                  <h3 className="font-serif font-bold text-xl text-stone-900 mb-2">{step.title}</h3>
-                  <p className="text-stone-600 text-base leading-relaxed">{step.desc}</p>
+                {/* Контент (Content) */}
+                {/* Чередование отступов и выравнивания текста для шахматного порядка на десктопе */}
+                <div className={`flex-1 pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
+                  <h3 className="text-xl font-bold text-stone-900 mb-2">{step.title}</h3>
+                  <p className="text-stone-700 leading-relaxed">{step.desc}</p>
                 </div>
+
+                {/* Пустой блок для выравнивания сетки (Spacer) */}
+                <div className="hidden md:block flex-1"></div>
               </div>
             ))}
           </div>
+        </div>
 
-          <div className="mt-16 text-center">
-            <Button onClick={scrollToContact} className="!px-12 !py-4 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">Записаться на знакомство</Button>
-          </div>
+        <div className="mt-16 hidden md:flex md:justify-center">
+          <Button onClick={scrollToContact} className="!px-12 !py-4 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">Записаться на знакомство</Button>
         </div>
       </Section>
 
