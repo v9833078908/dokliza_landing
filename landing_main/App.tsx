@@ -18,8 +18,14 @@ import {
   CalendarCheck,
   User,
   X,
-  MapPin
+  MapPin,
+  Quote
 } from 'lucide-react';
+
+// --- Feature Flags ---
+const FEATURE_FLAGS = {
+  SHOW_THREE_STEPS_SECTION: false, // "Три шага от вечных болезней к стабильному здоровью"
+};
 
 // --- Shared Components ---
 
@@ -197,7 +203,7 @@ const reviews = [
   },
   {
     id: 3,
-    title: "Про щитовидную железу (Чудо результата)",
+    title: "Про щитовидную железу",
     text: "Женщина 13 лет наблюдала узел в щитовидной железе — все врачи твердили, что он есть. После нашей работы она впервые увидела чистое УЗИ: узла больше не было! Это огромная победа, которая теперь помогает ей запустить метаболизм и наконец начать снижать вес."
   },
   {
@@ -505,50 +511,52 @@ const App = () => {
       </Section>
 
       {/* --- Block 4: Three Steps --- */}
-      <Section className="bg-nature-50" id="method">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 leading-tight">Три шага от вечных болезней к стабильному здоровью</h2>
-          <p className="text-stone-500 uppercase tracking-widest font-semibold text-sm"></p>
-        </div>
+      {FEATURE_FLAGS.SHOW_THREE_STEPS_SECTION && (
+        <Section className="bg-nature-50" id="method">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 leading-tight">Три шага от вечных болезней к стабильному здоровью</h2>
+            <p className="text-stone-500 uppercase tracking-widest font-semibold text-sm"></p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card className="relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
-            <div className="absolute top-0 right-0 bg-nature-100 text-nature-700 px-4 py-1.5 text-xs font-bold rounded-bl-xl">Этап 1</div>
-            <div className="w-14 h-14 bg-nature-50 rounded-2xl flex items-center justify-center text-nature-600 mb-6">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="font-serif font-bold text-xl text-nature-800 mb-3">Найти причину</h3>
-            <p className="text-stone-600 mb-6 text-base leading-relaxed">Я анализирую 40+ параметров: от истории ваших родов до содержимого тарелки вчера на ужин. В результате, хаос превращается в ясность и вы понимаете, почему произошел сбой и где «тонкое место» в иммунитете ребенка.</p>
-            <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
-              <Clock className="w-4 h-4" /> 7 дней
-            </div>
-          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+              <div className="absolute top-0 right-0 bg-nature-100 text-nature-700 px-4 py-1.5 text-xs font-bold rounded-bl-xl">Этап 1</div>
+              <div className="w-14 h-14 bg-nature-50 rounded-2xl flex items-center justify-center text-nature-600 mb-6">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+              <h3 className="font-serif font-bold text-xl text-nature-800 mb-3">Найти причину</h3>
+              <p className="text-stone-600 mb-6 text-base leading-relaxed">Я анализирую 40+ параметров: от истории ваших родов до содержимого тарелки вчера на ужин. В результате, хаос превращается в ясность и вы понимаете, почему произошел сбой и где «тонкое место» в иммунитете ребенка.</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
+                <Clock className="w-4 h-4" /> 7 дней
+              </div>
+            </Card>
 
-          <Card className="relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300 border-nature-200 shadow-lg">
-            <div className="absolute top-0 right-0 bg-nature-600 text-white px-4 py-1.5 text-xs font-bold rounded-bl-xl">Этап 2</div>
-            <div className="w-14 h-14 bg-nature-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-nature-200">
-              <Heart className="w-8 h-8" />
-            </div>
-            <h3 className="font-serif font-bold text-xl text-stone-900 mb-3">Запустить восстановление</h3>
-            <p className="text-stone-600 mb-6 text-base leading-relaxed">Подбираю индивидуальный протокол, корректируем питание, образ жизни, добавляем нутрицевтики, если нужны. В результате ребенок меняется на глазах - сон становится крепче, капризы уходят, а затяжные сопли наконец-то проходят. Вы выдыхаете.</p>
-            <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
-              <Clock className="w-4 h-4" /> 14–30 дней
-            </div>
-          </Card>
+            <Card className="relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300 border-nature-200 shadow-lg">
+              <div className="absolute top-0 right-0 bg-nature-600 text-white px-4 py-1.5 text-xs font-bold rounded-bl-xl">Этап 2</div>
+              <div className="w-14 h-14 bg-nature-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-nature-200">
+                <Heart className="w-8 h-8" />
+              </div>
+              <h3 className="font-serif font-bold text-xl text-stone-900 mb-3">Запустить восстановление</h3>
+              <p className="text-stone-600 mb-6 text-base leading-relaxed">Подбираю индивидуальный протокол, корректируем питание, образ жизни, добавляем нутрицевтики, если нужны. В результате ребенок меняется на глазах - сон становится крепче, капризы уходят, а затяжные сопли наконец-то проходят. Вы выдыхаете.</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
+                <Clock className="w-4 h-4" /> 14–30 дней
+              </div>
+            </Card>
 
-          <Card className="relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
-            <div className="absolute top-0 right-0 bg-nature-100 text-nature-700 px-4 py-1.5 text-xs font-bold rounded-bl-xl">Этап 3</div>
-            <div className="w-14 h-14 bg-nature-50 rounded-2xl flex items-center justify-center text-nature-600 mb-6">
-              <ShieldCheck className="w-8 h-8" />
-            </div>
-            <h3 className="font-serif font-bold text-xl text-nature-800 mb-3">Закрепить результат</h3>
-            <p className="text-stone-600 mb-6 text-base leading-relaxed">Контрольные анализы и закрепление успеха. Вы получаете алгоритмы действий на будущее. Вы чувствуете уверенность и спокойствие, знаете, как не дать ребенку разболеться, без паники и лишних лекарств</p>
-            <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
-              <Clock className="w-4 h-4" /> 60 дней
-            </div>
-          </Card>
-        </div>
-      </Section>
+            <Card className="relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+              <div className="absolute top-0 right-0 bg-nature-100 text-nature-700 px-4 py-1.5 text-xs font-bold rounded-bl-xl">Этап 3</div>
+              <div className="w-14 h-14 bg-nature-50 rounded-2xl flex items-center justify-center text-nature-600 mb-6">
+                <ShieldCheck className="w-8 h-8" />
+              </div>
+              <h3 className="font-serif font-bold text-xl text-nature-800 mb-3">Закрепить результат</h3>
+              <p className="text-stone-600 mb-6 text-base leading-relaxed">Контрольные анализы и закрепление успеха. Вы получаете алгоритмы действий на будущее. Вы чувствуете уверенность и спокойствие, знаете, как не дать ребенку разболеться, без паники и лишних лекарств</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-stone-400 mt-auto">
+                <Clock className="w-4 h-4" /> 60 дней
+              </div>
+            </Card>
+          </div>
+        </Section>
+      )}
 
       {/* --- Block 5: Hero's Journey --- */}
       <Section className="bg-white">
@@ -556,7 +564,7 @@ const App = () => {
 
           <div className="relative order-2 lg:order-1 h-full min-h-[400px] hidden lg:block rounded-[3rem] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?q=80&w=1000&auto=format&fit=crop"
+              src="/doctor-with-baby.jpg"
               alt="Doctor with patient"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -573,22 +581,22 @@ const App = () => {
             <div className="space-y-8 text-stone-700 leading-relaxed text-base md:text-lg">
               <div className="relative pl-6 border-l-4 border-stone-200">
                 <span className="font-bold text-stone-900 block mb-2 text-xl">До</span>
-                <p>Я работала в патанатомии и видела, как болезни развиваются изнутри. Я понимала: многое <strong>можно было предотвратить</strong>, если бы кто-то занялся причинами раньше.</p>
+                <p>Я была доктором-паталогоанатоном и была уверена, что педиатрия и живые пациенты это не моё. Я чувстовала, что не смогу работать в системе как доктор.</p>
               </div>
 
               <div className="relative pl-6 border-l-4 border-red-200">
                 <span className="font-bold text-red-700 block mb-2 text-xl">Кризис</span>
-                <p>Система давала всего 6-8 минут на приём. Я ощущала себя белой вороной: ведь я хотела менять жизни людей, а не просто выписывать рецепты.</p>
+                <p>Меня не устраивал подход, где врач видит только симптомы и выделяет максимум 15 минут на приём. Это были поверхностные рекомендации по протоколу, и я начала искать более эффективный подход</p>
               </div>
 
               <div className="relative pl-6 border-l-4 border-nature-300">
                 <span className="font-bold text-nature-700 block mb-2 text-xl">Прозрение</span>
-                <p>Всё изменила моя собственная беременность. Мой ТТГ скакал, врачи говорили «норма», но самочувствие было ужасное. Я нашла другой подход.</p>
+                <p>Всё изменилось, когда я забеременела. Меня гоняли по ненужным обследованиям. ТТГ скакал, а врачи говорили что всё в норме. В итоге я обратилась к доктору с другим подходом, который мне помог и переняла его опыт. Тогда я поняла, что хочу дать себе, своей семье и своему ребёнку лучшее качество здоровья. Не норму по анализам, а настоящее здоровье</p>
               </div>
 
               <div className="bg-nature-50 p-6 rounded-2xl border border-nature-100">
                 <span className="font-bold text-nature-800 block mb-2 text-xl">Сегодня</span>
-                <p>Мои консультации длятся минимум 1 час. Это медицина, где <strong>врач идёт рядом с семьёй</strong>.</p>
+                <p>Я знаю, что беспокоит каждого моего пациента. Не потому что спрашиваю для галочки. А потому что погружаюсь в каждого индивидуально. Я знаю, что это работает, потому что прошла этот путь сама: со своим ребёнком, со своей семьёй, с сотнями пациентов.</p>
               </div>
             </div>
           </div>
@@ -711,35 +719,39 @@ const App = () => {
       </Section>
 
       {/* --- Block 8: Social Proof (Carousel/Grid) --- */}
-      <Section className="bg-[#F2F5F3]" id="reviews">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Результаты пациентов</h2>
-          <div className="w-16 h-1 bg-nature-500 rounded mx-auto"></div>
+      <Section className="bg-[#F2F9F4]" id="reviews">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 text-stone-900">Истории побед</h2>
+          <p className="text-stone-500 text-lg italic font-serif">Реальные люди. Реальные результаты.</p>
         </div>
 
         {/* Mobile: Snap Scroll / Desktop: Grid */}
         <div className="
-            flex overflow-x-auto gap-4 pb-8 snap-x mandatory no-scrollbar -mx-6 px-6 
-            md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:mx-0 md:px-0 md:pb-0 md:overflow-visible
-          ">
+          flex overflow-x-auto gap-6 pb-12 snap-x mandatory no-scrollbar -mx-6 px-6 
+          md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:mx-0 md:px-0 md:pb-0 md:overflow-visible
+        ">
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="min-w-[85%] sm:min-w-[300px] snap-center bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-stone-100 flex flex-col hover:shadow-md transition h-full"
+              className="
+                min-w-[85%] sm:min-w-[350px] snap-center 
+                bg-[#FDFBF7] p-8 md:p-10 rounded-tr-[3rem] rounded-bl-[3rem] rounded-tl-xl rounded-br-xl
+                shadow-lg shadow-nature-100/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+                flex flex-col relative h-full border border-[#F2EFE9]
+              "
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-nature-100 flex items-center justify-center text-nature-600 font-bold text-sm">
-                  <User className="w-5 h-5" />
-                </div>
-                <div className="flex-1">
-                  <div className="h-px bg-stone-100 w-full mb-1"></div>
-                  <div className="flex text-amber-400 gap-0.5">
-                    {[1, 2, 3, 4, 5].map(s => <span key={s}>★</span>)}
-                  </div>
-                </div>
+              {/* Decorative Quote Icon */}
+              <Quote className="absolute top-6 left-6 w-12 h-12 text-nature-200 opacity-50" />
+
+              <div className="relative z-10 pt-8">
+                <h3 className="font-serif font-bold text-nature-800 mb-4 text-2xl leading-tight">
+                  {review.title}
+                </h3>
+                <div className="w-12 h-0.5 bg-nature-300 mb-6 opacity-60"></div>
+                <p className="text-base md:text-lg text-stone-700 leading-relaxed font-sans">
+                  {review.text}
+                </p>
               </div>
-              <h3 className="font-bold text-nature-800 mb-3 text-lg leading-tight">{review.title}</h3>
-              <p className="text-sm md:text-base text-stone-600 leading-relaxed italic flex-1">"{review.text}"</p>
             </div>
           ))}
         </div>
@@ -790,21 +802,47 @@ const App = () => {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Устраняйте причины, а не симптомы</h2>
           <p className="text-stone-600 mb-10 text-lg md:text-xl leading-relaxed">Давайте найдем настоящую причину и вернем здоровье вашей семье системным путем. Первый шаг ни к чему вас не обязывает.</p>
-          <Button onClick={() => window.location.href = 'https://t.me/elizavetaefimova'} className="mx-auto !text-lg !px-10 !py-4 shadow-xl">Записаться на бесплатное знакомство (15 мин)</Button>
+          <Button onClick={() => window.location.href = 'https://t.me/dokliza'} className="mx-auto !text-lg !px-10 !py-4 shadow-xl">Записаться на бесплатное знакомство (15 мин)</Button>
         </div>
       </Section>
 
       {/* --- Footer --- */}
       <footer className="bg-nature-700 text-nature-200 py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <span>Контакты (Telegram/WhatsApp)</span>
-            <a href="#" className="hover:text-white transition">Политика конфиденциальности</a>
-            <a href="#" className="hover:text-white transition">Договор оферты</a>
-          </div>
-          <div className="text-center md:text-right">
-            <p>ИНН 220360264960</p>
-            <p>Ефимова Елизавета Эдуардовна, г. Москва</p>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 items-start">
+
+            {/* Контакты */}
+            <div className="flex flex-col gap-3 w-full">
+              <h3 className="text-white font-semibold mb-2 text-base">Контакты</h3>
+              <a href="mailto:dr.efimovaelizaveta@ya.ru" className="flex items-center gap-2 hover:text-white transition text-sm">
+                <MessageCircle className="w-4 h-4 flex-shrink-0" />
+                <span>dr.efimovaelizaveta@ya.ru</span>
+              </a>
+              <a href="tel:+79265108908" className="flex items-center gap-2 hover:text-white transition text-sm">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span>+7 (926) 510-89-08</span>
+              </a>
+            </div>
+
+            {/* Документы */}
+            <div className="flex flex-col gap-3 w-full">
+              <h3 className="text-white font-semibold mb-2 text-base">Документы</h3>
+              <a href="https://disk.yandex.ru/i/VFygMl9dtikmkA" target="_blank" rel="noopener noreferrer" className="hover:text-white transition text-sm">
+                Политика конфиденциальности
+              </a>
+              <a href="https://disk.yandex.ru/i/eZOSaNSxp0hKLw" target="_blank" rel="noopener noreferrer" className="hover:text-white transition text-sm">
+                Договор оферты
+              </a>
+            </div>
+
+            {/* Реквизиты */}
+            <div className="flex flex-col gap-2 w-full md:text-right">
+              <h3 className="text-white font-semibold mb-2 text-base">Реквизиты</h3>
+              <p className="text-sm">ИНН 220360264960</p>
+              <p className="text-sm">Ефимова Елизавета Эдуардовна</p>
+              <p className="text-sm">г. Москва</p>
+            </div>
+
           </div>
         </div>
       </footer>
