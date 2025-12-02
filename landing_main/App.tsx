@@ -19,7 +19,8 @@ import {
   User,
   X,
   MapPin,
-  Quote
+  Quote,
+  Cookie
 } from 'lucide-react';
 
 // --- Feature Flags ---
@@ -247,7 +248,7 @@ const Navbar = ({ onContactClick }: { onContactClick: () => void }) => {
           <div className="w-8 h-8 md:w-10 md:h-10 bg-nature-600 rounded-full flex items-center justify-center text-white">
             <Stethoscope className="w-5 h-5 md:w-6 md:h-6" />
           </div>
-          <span className="font-serif font-bold text-lg md:text-xl text-stone-900">Доктор Лиза</span>
+          <span className="font-serif font-bold text-lg md:text-xl text-stone-900">Лиза Ефимова</span>
         </div>
 
         {/* Desktop Menu */}
@@ -276,6 +277,51 @@ const Navbar = ({ onContactClick }: { onContactClick: () => void }) => {
         </div>
       )}
     </nav>
+  );
+};
+
+const CookieConsent = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Проверяем, есть ли запись в localStorage
+    const consent = localStorage.getItem('cookie-consent');
+    if (!consent) {
+      // Если нет, показываем плашку через 2 секунды с анимацией
+      const timer = setTimeout(() => setIsVisible(true), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const accept = () => {
+    // Сохраняем согласие и скрываем плашку
+    localStorage.setItem('cookie-consent', 'true');
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed z-[60] bottom-0 left-0 right-0 md:left-8 md:bottom-8 md:right-auto md:w-[380px] bg-white/95 backdrop-blur-md shadow-[0_-5px_20px_rgba(0,0,0,0.1)] md:shadow-2xl p-4 md:rounded-2xl border-t md:border border-nature-100 flex items-center justify-between gap-4 animate-in slide-in-from-bottom-10 fade-in duration-700">
+      <div className="flex items-center gap-3 flex-1">
+        {/* Иконка */}
+        <div className="w-8 h-8 bg-nature-50 rounded-full flex items-center justify-center text-nature-600 shrink-0">
+          <Cookie className="w-4 h-4" />
+        </div>
+        {/* Текст */}
+        <div className="text-xs text-stone-600 leading-tight">
+          <p className="font-bold text-stone-800 mb-0.5">Мы используем cookie</p>
+          <p>Продолжая, вы соглашаетесь с использованием cookie.</p>
+        </div>
+      </div>
+      {/* Кнопка */}
+      <button
+        onClick={accept}
+        className="px-4 py-2 bg-nature-600 text-white text-xs font-bold rounded-lg hover:bg-nature-700 transition active:scale-95 shadow-md shadow-nature-200/50 whitespace-nowrap"
+      >
+        Хорошо
+      </button>
+    </div>
   );
 };
 
@@ -363,7 +409,7 @@ const App = () => {
             {/* Desktop CTA (Grid Layout) */}
             <div className="flex flex-col sm:flex-row gap-4 items-center">
               <Button onClick={scrollToContact} className="!text-lg !px-10 shadow-xl shadow-nature-200 hover:shadow-nature-300">
-                Записаться на бесплатное знакомство
+                Записаться на знакомство
               </Button>
               <span className="text-stone-500 text-sm flex items-center gap-1">
                 <Clock className="w-4 h-4" /> 15 минут
@@ -717,6 +763,9 @@ const App = () => {
           <Button onClick={scrollToContact} className="!px-12 !py-4 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">Записаться на знакомство</Button>
         </div>
       </Section>
+
+      {/* --- Cookie Consent --- */}
+      <CookieConsent />
 
       {/* --- Block 8: Social Proof (Carousel/Grid) --- */}
       <Section className="bg-[#F2F9F4]" id="reviews">
