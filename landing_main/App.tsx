@@ -407,7 +407,7 @@ const App = () => {
             </p>
 
             {/* Desktop CTA (Grid Layout) */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center sm:justify-start">
               <Button onClick={scrollToContact} className="!text-lg !px-10 shadow-xl shadow-nature-200 hover:shadow-nature-300">
                 Записаться на знакомство
               </Button>

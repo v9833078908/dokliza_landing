@@ -1,0 +1,91 @@
+name: Deploy to VPS
+
+# Trigger deployment on push to main branch
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - 'notes/**'
+      - '.gitignore'
+
+# Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        cache: 'npm'
+
+    # Install dependencies
+    - name: Install dependencies
+      run: npm ci
+
+    # Build the project
+    - name: Build project
+      run: npm run build
+
+    # Verify build output
+    - name: Verify build
+      run: |
+        ls -la dist/
+        echo "Build size:"
+        du -sh dist/
+
+    # Deploy to VPS via SSH
+    - name: Deploy to VPS
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USERNAME }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        port: 22
+        script: |
+          echo "Starting deployment process..."
+          
+          # Navigate to project directory
+          cd /var/www/dokliza-source || exit 1
+          
+          # Pull latest changes
+          git fetch origin
+          git reset --hard origin/main
+          
+          # Install dependencies and build
+          npm ci --production=false
+          npm run build
+          
+          # Sync built files to web directory
+          rsync -av --delete dist/ /var/www/dokliza/
+          
+          # Set proper permissions
+          chown -R www-data:www-data /var/www/dokliza/
+          chmod -R 755 /var/www/dokliza/
+          
+          # Reload Caddy to ensure latest config
+          systemctl reload caddy
+          
+          echo "Deployment completed successfully!"
+          
+          # Verify deployment
+          curl -I https://dokliza.com/ || echo "Site not accessible yet (DNS propagation needed)"
+
+    # Notify deployment status (optional)
+    - name: Deployment notification
+      if: always()
+      run: |
+        if [ ${{ job.status }} == 'success' ]; then
+          echo "✅ Deployment successful to https://dokliza.com"
+        else
+          echo "❌ Deployment failed"
+        fi
