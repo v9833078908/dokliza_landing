@@ -55,22 +55,25 @@ jobs:
           echo "Starting deployment process..."
           
           # Navigate to project directory
-          cd /var/www/dokliza-source || exit 1
+          cd /var/www/projects/dokliza || exit 1
           
           # Pull latest changes
           git fetch origin
           git reset --hard origin/main
+          
+          # Navigate to landing_main subdirectory
+          cd landing_main
           
           # Install dependencies and build
           npm ci --production=false
           npm run build
           
           # Sync built files to web directory
-          rsync -av --delete dist/ /var/www/dokliza/
+          rsync -av --delete dist/ /var/www/sites/dokliza/
           
           # Set proper permissions
-          chown -R www-data:www-data /var/www/dokliza/
-          chmod -R 755 /var/www/dokliza/
+          chown -R www-data:www-data /var/www/sites/dokliza/
+          chmod -R 755 /var/www/sites/dokliza/
           
           # Reload Caddy to ensure latest config
           systemctl reload caddy
