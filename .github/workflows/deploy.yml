@@ -27,17 +27,21 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
+        cache-dependency-path: 'landing_main/package-lock.json'
 
     # Install dependencies
     - name: Install dependencies
+      working-directory: ./landing_main
       run: npm ci
 
     # Build the project
     - name: Build project
+      working-directory: ./landing_main
       run: npm run build
 
     # Verify build output
     - name: Verify build
+      working-directory: ./landing_main
       run: |
         ls -la dist/
         echo "Build size:"
