@@ -20,7 +20,14 @@ import {
   X,
   MapPin,
   Quote,
-  Cookie
+  Cookie,
+  FileText,
+  HelpCircle,
+  Bot,
+  Sparkles,
+  Send,
+  Youtube,
+  Instagram
 } from 'lucide-react';
 
 // --- Feature Flags ---
@@ -252,12 +259,74 @@ const Navbar = ({ onContactClick }: { onContactClick: () => void }) => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#about" className="text-stone-600 hover:text-nature-600 font-medium transition">Обо мне</a>
+        <div className="hidden md:flex items-center gap-6">
           <a href="#problems" className="text-stone-600 hover:text-nature-600 font-medium transition">Симптомы</a>
-          <a href="#method" className="text-stone-600 hover:text-nature-600 font-medium transition">Метод</a>
+          <a href="#process" className="text-stone-600 hover:text-nature-600 font-medium transition">Этапы</a>
           <a href="#reviews" className="text-stone-600 hover:text-nature-600 font-medium transition">Отзывы</a>
+
+          {/* Social Icons Container */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Telegram */}
+            <a href="https://t.me/elizavetaefimova" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-nature-200">
+              <Send className="w-4 h-4 md:w-5 md:h-5 -ml-0.5" />
+            </a>
+
+            {/* VK - Using Image Tag for Custom PNG */}
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-nature-200 group">
+              <img
+                src="/vk-logo.png"
+                alt="VK"
+                className="w-4 h-4 md:w-5 md:h-5 object-contain"
+              />
+            </a>
+
+            {/* YouTube */}
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-nature-200">
+              <Youtube className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+
+            {/* Instagram */}
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-nature-200">
+              <Instagram className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+          </div>
+
           <Button onClick={onContactClick} className="!py-2 !px-6 !text-sm">Записаться</Button>
+        </div>
+
+        {/* Mobile Social Icons - Visible only on screens < md (768px) */}
+        <div className="flex md:hidden items-center gap-2">
+          {/* Telegram */}
+          <a href="https://t.me/elizavetaefimova" target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-center w-8 h-8 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+            <Send className="w-4 h-4 -ml-0.5" />
+          </a>
+
+          {/* VK */}
+          <a href="#" target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-center w-8 h-8 bg-nature-50 rounded-xl hover:bg-nature-600 transition-all duration-300 hover:scale-110 shadow-sm">
+            <img
+              src="/vk-logo.png"
+              alt="VK"
+              className="w-4 h-4 object-contain"
+            />
+          </a>
+
+          {/* YouTube */}
+          <a href="#" target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-center w-8 h-8 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+            <Youtube className="w-4 h-4" />
+          </a>
+
+          {/* Instagram */}
+          <a href="#" target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-center w-8 h-8 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+            <Instagram className="w-4 h-4" />
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -269,10 +338,41 @@ const Navbar = ({ onContactClick }: { onContactClick: () => void }) => {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="absolute top-16 left-0 right-0 bg-white border-b border-stone-100 p-6 flex flex-col gap-4 shadow-xl md:hidden">
-          <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-stone-800 py-2 border-b border-stone-50">Обо мне</a>
           <a href="#problems" onClick={() => setMobileMenuOpen(false)} className="text-stone-800 py-2 border-b border-stone-50">Симптомы</a>
-          <a href="#method" onClick={() => setMobileMenuOpen(false)} className="text-stone-800 py-2 border-b border-stone-50">Метод</a>
+          <a href="#process" onClick={() => setMobileMenuOpen(false)} className="text-stone-800 py-2 border-b border-stone-50">Этапы</a>
           <a href="#reviews" onClick={() => setMobileMenuOpen(false)} className="text-stone-800 py-2 border-b border-stone-50">Отзывы</a>
+
+          {/* Social Icons for Mobile */}
+          <div className="flex items-center justify-center gap-3 py-4">
+            {/* Telegram */}
+            <a href="https://t.me/elizavetaefimova" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+              <Send className="w-5 h-5 -ml-0.5" />
+            </a>
+
+            {/* VK */}
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 bg-nature-50 rounded-xl hover:bg-nature-600 transition-all duration-300 hover:scale-110 shadow-sm">
+              <img
+                src="/vk-logo.png"
+                alt="VK"
+                className="w-5 h-5 object-contain"
+              />
+            </a>
+
+            {/* YouTube */}
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+              <Youtube className="w-5 h-5" />
+            </a>
+
+            {/* Instagram */}
+            <a href="#" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-10 h-10 bg-nature-50 text-nature-600 rounded-xl hover:bg-nature-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+              <Instagram className="w-5 h-5" />
+            </a>
+          </div>
+
           <Button onClick={() => { onContactClick(); setMobileMenuOpen(false); }}>Записаться</Button>
         </div>
       )}
@@ -383,6 +483,11 @@ const App = () => {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToPrice = () => {
+    const el = document.getElementById('price');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen font-sans text-stone-800 bg-white pt-16 md:pt-20">
       <Navbar onContactClick={scrollToContact} />
@@ -403,13 +508,13 @@ const App = () => {
             </h1>
 
             <p className="text-lg text-stone-600 leading-relaxed mb-8 md:text-xl">
-              Елизавета Ефимова — семейный доктор, врач-педиатр с ординатурой по патологоанатомии. Объединяю опыт 6 лет клинической практики с методами интегративной медицины. Выстраиваю семьям систему здоровья
+              Елизавета Ефимова — семейный доктор и врач-педиатр. Опыт 6 лет клинической практики с методами интегративной медицины. Выстраиваю семьям систему здоровья
             </p>
 
             {/* Desktop CTA (Grid Layout) */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center sm:justify-start">
-              <Button onClick={scrollToContact} className="!text-lg !px-10 shadow-xl shadow-nature-200 hover:shadow-nature-300">
-                Записаться на знакомство
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center sm:items-center sm:justify-start">
+              <Button onClick={scrollToPrice} className="w-full md:w-auto !text-lg !px-10 shadow-xl shadow-nature-200 hover:shadow-nature-300">
+                Записаться на консультацию
               </Button>
               <span className="text-stone-500 text-sm flex items-center gap-1">
                 <Clock className="w-4 h-4" /> 15 минут
@@ -496,7 +601,7 @@ const App = () => {
                 {[
                   "Ребенок вялый, плохо учится или ничего не хочет",
                   "Частые болезни, которые переходят в осложнения и хронику",
-                  "Плохо спит, избирательный аппети или частые капризы"
+                  "Плохо спит, избирательный аппетит или частые капризы"
                 ].map((item, i) => (
                   <li key={i} className="text-stone-700 text-sm md:text-base leading-relaxed flex items-start gap-3">
                     <span className="text-[#96CCAA] mt-1 flex-shrink-0">•</span>
@@ -697,7 +802,7 @@ const App = () => {
       </Section>
 
       {/* --- Block 7: Process (Timeline) --- */}
-      <Section>
+      <Section id="process">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-4">
             Этапы нашей работы онлайн
@@ -761,6 +866,116 @@ const App = () => {
 
         <div className="mt-16 hidden md:flex md:justify-center">
           <Button onClick={scrollToContact} className="!px-12 !py-4 text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">Записаться на знакомство</Button>
+        </div>
+      </Section>
+
+      {/* --- Block 7.5: Pricing / Next Steps --- */}
+      <Section id="price" className="py-12 md:py-24 bg-nature-50/50">
+        {/* Заголовок с увеличенным нижним отступом (mb-20) */}
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 text-stone-900">Следующие шаги</h2>
+        </div>
+
+        <div className="
+          flex overflow-x-auto gap-6 pt-10 pb-8 snap-x mandatory no-scrollbar -mx-6 px-6 
+          lg:grid lg:grid-cols-3 lg:gap-6 lg:mx-auto lg:px-0 lg:py-0 lg:overflow-visible items-start
+        ">
+
+          {/* 1. Карточка: Расшифровка анализов */}
+          <div className="min-w-[85%] sm:min-w-[350px] snap-center bg-white rounded-[2rem] p-8 border border-nature-100 shadow-lg hover:shadow-xl transition-all duration-300 order-2 lg:order-1 h-full flex flex-col">
+            <div className="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 mb-6">
+              <FileText className="w-6 h-6" />
+            </div>
+            <h3 className="font-serif font-bold text-2xl text-stone-900 mb-2">Расшифровка анализов</h3>
+            <div className="text-2xl font-bold text-nature-700 mb-6">1 900 ₽</div>
+
+            <p className="text-stone-600 leading-relaxed mb-8 flex-grow">
+              Текстовая интерпретация вашего анализа крови с векторами улучшений. Понятно и по делу.
+            </p>
+
+            <Button
+              onClick={() => window.location.href = 'https://yookassa.ru/'}
+              variant="outline"
+              fullWidth
+              className="!border-stone-200 text-stone-600 hover:border-nature-300 hover:text-nature-700 mt-auto"
+            >
+              Перейти к оплате
+            </Button>
+          </div>
+
+          {/* 2. Карточка: Консультация (Центральная, акцентная) */}
+          <div className="min-w-[85%] sm:min-w-[350px] snap-center bg-white rounded-[2rem] p-8 md:p-10 border-2 border-nature-500 shadow-2xl relative order-1 lg:order-2 lg:-mt-8 h-full flex flex-col">
+            {/* Бейдж "Рекомендуемый выбор" */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-nature-600 text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide shadow-md whitespace-nowrap">
+              Рекомендуемый выбор
+            </div>
+
+            <div className="w-14 h-14 bg-nature-50 rounded-2xl flex items-center justify-center text-nature-600 mb-6">
+              <User className="w-7 h-7" />
+            </div>
+
+            <h3 className="font-serif font-bold text-3xl text-stone-900 mb-2">Консультация</h3>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-stone-400 text-xl line-through decoration-stone-300 decoration-1">9 000 ₽</span>
+              <span className="text-nature-700 text-4xl font-bold">5 000 ₽</span>
+            </div>
+
+            <ul className="space-y-4 mb-10 flex-grow">
+              <li className="flex items-start gap-3 text-stone-700">
+                <CheckCircle2 className="w-5 h-5 text-nature-500 mt-0.5 shrink-0" />
+                <span>Длительность 1 час + вопросы в течение 3 дней</span>
+              </li>
+              <li className="flex items-start gap-3 text-stone-700">
+                <CheckCircle2 className="w-5 h-5 text-nature-500 mt-0.5 shrink-0" />
+                <span>Сбор жалоб, анамнеза, анализов и обследований</span>
+              </li>
+              <li className="flex items-start gap-3 text-stone-700">
+                <CheckCircle2 className="w-5 h-5 text-nature-500 mt-0.5 shrink-0" />
+                <span>Рекомендации и план восстановления на 2 месяца</span>
+              </li>
+            </ul>
+
+            <div className="space-y-3 mt-auto w-full">
+              <Button
+                onClick={() => window.location.href = 'https://yookassa.ru/'}
+                fullWidth
+                className="!py-4 text-lg shadow-xl shadow-nature-200"
+              >
+                Перейти к оплате
+              </Button>
+              <Button
+                onClick={() => window.location.href = 'https://t.me/elizavetaefimova'}
+                variant="outline"
+                fullWidth
+                className="!border-stone-200 text-stone-500 hover:text-nature-700 hover:bg-nature-50"
+                icon={HelpCircle}
+              >
+                Задать вопрос
+              </Button>
+            </div>
+          </div>
+
+          {/* 3. Карточка: AI Чат-бот */}
+          <div className="min-w-[85%] sm:min-w-[350px] snap-center bg-white rounded-[2rem] p-8 border border-nature-100 shadow-lg hover:shadow-xl transition-all duration-300 order-3 lg:order-3 h-full flex flex-col">
+            <div className="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-500 mb-6">
+              <Bot className="w-6 h-6" />
+            </div>
+            <h3 className="font-serif font-bold text-2xl text-stone-900 mb-2">AI чат-бот</h3>
+            <div className="text-lg font-bold text-purple-600 mb-6 bg-purple-50 inline-block px-3 py-1 rounded-lg">Бесплатно</div>
+
+            <p className="text-stone-600 leading-relaxed mb-8 flex-grow">
+              Сгенерируйте короткую персонализированную вовлекающую притчу для детей от 1 до 6 лет.
+            </p>
+
+            <Button
+              onClick={() => window.open('https://t.me/your_bot_link', '_blank')}
+              fullWidth
+              className="bg-stone-900 hover:bg-stone-800 text-white shadow-stone-200 mt-auto"
+              icon={Sparkles}
+            >
+              Перейти в бот
+            </Button>
+          </div>
         </div>
       </Section>
 
